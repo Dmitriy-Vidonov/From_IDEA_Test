@@ -2,17 +2,10 @@ import org.apache.poi.ss.usermodel.*;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import java.io.File;
 import java.io.FileInputStream;
-import java.util.ArrayList;
-import java.util.Collections;
 import java.util.HashSet;
 
 public class ReadExcelTemplate {
-    /*static ArrayList<Integer> readTemplate(String templateName, //имя Excel шаблона для обработки
-                                           int totalRowsCount,  //кол-во ячеек в столбце, заполненное числовыми значениями
-                                           int rangeOfFormulaCells, //какое число ячеек с формулами считываем
-                                           int columnNumber //в каком столбце считываем ячейки с формулами (счет с 0)
-    ) {*/
-    static HashSet<Integer> readTemplate(String templateName, //имя Excel шаблона для обработки
+       static HashSet<Integer> readTemplate(String templateName, //имя Excel шаблона для обработки
                                          int totalRowsCount,  //кол-во ячеек в столбце, заполненное числовыми значениями
                                          int rangeOfFormulaCells, //какое число ячеек с формулами считываем
                                          int columnNumber //в каком столбце считываем ячейки с формулами (счет с 0)
@@ -35,8 +28,6 @@ public class ReadExcelTemplate {
                 if((int)formulaEvaluator.evaluate(cellNums).getNumberValue()!=0) //в итог заносим ненулевые значения
                     numsFromSheet.add((int)formulaEvaluator.evaluate(cellNums).getNumberValue()); //только результат формул
             }
-            //Collections.sort(numsFromSheet); //сортировка итогового списка
-
         } catch (Exception ex) {
             System.err.println("Error during reading the Excel file - " + ex);
         }
